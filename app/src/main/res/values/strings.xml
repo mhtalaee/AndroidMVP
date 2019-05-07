@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidMVP</string>
+
+    //Phone Book
+    <string name="firstname">FirstName</string>
+    <string name="lastname">LastName</string>
+    <string name="cellphone">CellPhone</string>
 </resources>
