@@ -1,6 +1,6 @@
 package ir.goldenmind.androidmvp.features.addcontact
 
-import ir.goldenmind.androidmvp.pojo.Contact
+import ir.goldenmind.androidmvp.features.showcontacts.ShowContactsActivity
 import ir.goldenmind.androidmvp.utils.Consts
 
 class AddContactPresenter(private val view: Contract.View) : Contract.Presenter {
@@ -8,7 +8,7 @@ class AddContactPresenter(private val view: Contract.View) : Contract.Presenter 
     private val model = AddContactModel(this)
 
     override fun onSaveButtonClicked() {
-        val contact: Contact = view.getFormValues()
+        val contact = view.getFormValues()
         model.saveContact(contact)
     }
 
@@ -20,6 +20,8 @@ class AddContactPresenter(private val view: Contract.View) : Contract.Presenter 
         }
     }
 
-
+    fun onShowListButtonClicked() {
+        view.changeActivity(ShowContactsActivity::class.java)
+    }
 
 }

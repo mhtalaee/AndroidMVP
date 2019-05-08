@@ -6,13 +6,11 @@ class ShowContactsPresenter(private val view: Contract.View) : Contract.Presente
 
     private val model = ShowContactsModel(this)
 
-    override fun onShowContactsList() {
+    fun onShowContactsList() {
         model.fetchContactList()
     }
 
     override fun contactListFetched(list: ArrayList<Contact>) {
         view.showContactList(list)
     }
-
-
 }

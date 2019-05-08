@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import ir.goldenmind.androidmvp.R
 import ir.goldenmind.androidmvp.base.BaseActivity
-import ir.goldenmind.androidmvp.features.showcontacts.ShowContactsActivity
 import ir.goldenmind.androidmvp.pojo.Contact
 import kotlinx.android.synthetic.main.activity_add_contact.*
 
@@ -19,6 +18,13 @@ class AddContactActivity : BaseActivity(), Contract.View {
         init()
     }
 
+    override fun onResume() {
+        super.onResume()
+        etFirstName.text.clear()
+        etLastName.text.clear()
+        etCellPhone.text.clear()
+    }
+
     private fun init() {
 
         btnSave.setOnClickListener {
@@ -26,23 +32,25 @@ class AddContactActivity : BaseActivity(), Contract.View {
         }
 
         btnShowList.setOnClickListener {
-            val intentToShowContactsActivity = Intent(this,ShowContactsActivity::class.java)
-            startActivity(intentToShowContactsActivity)
+            presenter.onShowListButtonClicked()
         }
     }
 
     override fun getFormValues(): Contact {
-
         val contact = Contact()
         contact.firstName = etFirstName.text.toString()
         contact.lastName = etLastName.text.toString()
         contact.cellPhone = etCellPhone.text.toString()
-
         return contact
     }
 
     override fun showToast(message: String, duration: Int) {
         Toast.makeText(this, message, duration).show()
+    }
+
+    override fun changeActivity(destivationActivity: Class<*>) {
+        val intentToShowContactsActivity = Intent(this, destivationActivity)
+        startActivity(intentToShowContactsActivity)
     }
 
 }

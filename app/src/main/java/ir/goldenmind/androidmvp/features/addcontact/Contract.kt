@@ -5,15 +5,13 @@ import ir.goldenmind.androidmvp.pojo.Contact
 interface Contract {
 
     interface View {
-
         fun getFormValues(): Contact
-        fun showToast(s: String, shorT_DURATION: Int)
+        fun showToast(message: String, duration: Int)
+        fun changeActivity(destivationActivity: Class<*>)
     }
 
     interface Presenter {
-
         fun onSaveButtonClicked()
         fun onSaveContactFinished(successInsert: Boolean)
-
     }
 }

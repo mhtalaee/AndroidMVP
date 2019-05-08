@@ -18,7 +18,6 @@ class ShowContactsActivity : BaseActivity(), Contract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_contacts)
-
         init()
     }
 
@@ -26,8 +25,7 @@ class ShowContactsActivity : BaseActivity(), Contract.View {
         presenter.onShowContactsList()
 
         btnBack.setOnClickListener {
-            val intentToAddContactActivity = Intent(this, AddContactActivity::class.java)
-            startActivity(intentToAddContactActivity)
+           finish()
         }
     }
 

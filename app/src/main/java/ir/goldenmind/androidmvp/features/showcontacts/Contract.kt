@@ -6,12 +6,9 @@ interface Contract {
 
     interface View{
         fun showContactList(list: ArrayList<Contact>)
-
     }
 
     interface Presenter{
-        fun onShowContactsList()
         fun contactListFetched(list : ArrayList<Contact>)
-
     }
 }
