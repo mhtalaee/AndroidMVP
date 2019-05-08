@@ -1,4 +1,4 @@
-package ir.goldenmind.androidmvp.features.phonebook
+package ir.goldenmind.androidmvp.features.addcontact
 
 import ir.goldenmind.androidmvp.pojo.Contact
 
@@ -13,6 +13,7 @@ interface Contract {
     interface Presenter {
 
         fun onSaveButtonClicked()
+        fun onSaveContactFinished(successInsert: Boolean)
 
     }
 }

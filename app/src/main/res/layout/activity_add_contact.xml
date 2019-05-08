@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".features.phonebook.AddContactActivity">
+    tools:context=".features.addcontact.AddContactActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,11 +87,23 @@
 
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
     <Button
         android:id="@+id/btnSave"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:text="Save" />
 
+    <Button
+            android:id="@+id/btnShowList"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Show List" />
+
+    </LinearLayout>
 </LinearLayout>
