@@ -6,6 +6,7 @@ interface Contract {
 
     interface View{
         fun showContactList(list: ArrayList<Contact>)
+        fun showToastMessage(message : String, duration: Int)
     }
 
     interface Presenter{
