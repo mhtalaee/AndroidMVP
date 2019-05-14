@@ -36,11 +36,7 @@ class ShowContactsActivity : BaseActivity(), Contract.View {
     private fun initRecyclerView(list: ArrayList<Contact>) {
 
         //set adapter
-        val adapter = ContactListAdapter(list, object : ClickHandler {
-            override fun onClick(v: View) {
-                presenter.onRecyclerViewItemClick(v)
-            }
-        })
+        val adapter = ContactListAdapter(list, onItemClickHandler)
         rvContactList.adapter = adapter
 
         //set layout manager
@@ -49,12 +45,17 @@ class ShowContactsActivity : BaseActivity(), Contract.View {
         //set swipe
         val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
 
-            override fun onMove(recyclerView: RecyclerView,viewHolder: RecyclerView.ViewHolder,target: RecyclerView.ViewHolder): Boolean {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
 
                 val position = viewHolder.adapterPosition
                 adapter!!.removeItem(position)
                 return true
             }
+
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 val position = viewHolder.adapterPosition
@@ -72,7 +73,9 @@ class ShowContactsActivity : BaseActivity(), Contract.View {
     }
 
     override fun showToastMessage(message: String, duration: Int) {
-        Toast.makeText(this, "item ${message} clicked", duration).show()
+        Toast.makeText(this, "item ${message} has been clicked", duration).show()
     }
+
+    val onItemClickHandler: (View) -> Unit = { presenter.onRecyclerViewItemClick(it) }
 
 }
