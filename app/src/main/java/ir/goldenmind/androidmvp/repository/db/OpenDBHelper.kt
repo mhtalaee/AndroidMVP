@@ -55,7 +55,7 @@ class OpenDBHelper(context: Context?, name: String, factory: SQLiteDatabase.Curs
         return list
     }
 
-    fun deleteContact(id: Int): Boolean {
+    fun deleteContact(id: Int?): Boolean {
         try {
             var deleteQuery = "DELETE FROM tbl_contacts WHERE _id = " + id
 

@@ -5,7 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".features.showcontacts.ShowContactsActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/activity_show_layout">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvContactList"

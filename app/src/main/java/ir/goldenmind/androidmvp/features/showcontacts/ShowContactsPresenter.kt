@@ -1,9 +1,7 @@
 package ir.goldenmind.androidmvp.features.showcontacts
 
-import android.view.View
 import ir.goldenmind.androidmvp.pojo.Contact
 import ir.goldenmind.androidmvp.utils.Consts
-import kotlinx.android.synthetic.main.contact_recyclerview_item.view.*
 
 class ShowContactsPresenter(private val view: Contract.View) : Contract.Presenter {
 
@@ -17,7 +15,20 @@ class ShowContactsPresenter(private val view: Contract.View) : Contract.Presente
         view.showContactList(list)
     }
 
-    fun onRecyclerViewItemClick(v: View) {
-        view.showToastMessage(v.tvFullName.text.toString(), Consts.SHORT_DURATION)
+    fun onRecyclerViewItemClick(strName: String) {
+        view.showToastMessage("Item ${strName} clicked", Consts.SHORT_DURATION)
+    }
+
+    override fun onRecyclerSwip(id: Int?) {
+        model.deleteContact(id)
+    }
+
+    override fun onContactDeleted(successfulDelete: Boolean) {
+
+        if (successfulDelete) {
+            view.showToastMessage("Item removed", Consts.SHORT_DURATION)
+        } else {
+            view.showToastMessage("Failed to remove item", Consts.SHORT_DURATION)
+        }
     }
 }

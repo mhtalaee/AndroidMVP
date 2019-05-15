@@ -5,16 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ir.goldenmind.androidmvp.R
-import ir.goldenmind.androidmvp.features.showcontacts.ClickHandler
 import ir.goldenmind.androidmvp.pojo.Contact
 import kotlinx.android.synthetic.main.contact_recyclerview_item.view.*
 
-//class ContactListAdapter(contactList: List<Contact>, clickHandler: ClickHandler) :
-class ContactListAdapter(contactList: List<Contact>, val clickHandler: (v: View) -> Unit) :
+class ContactListAdapter(contactList: ArrayList<Contact>, val clickHandler: (strName: String) -> Unit) :
     RecyclerView.Adapter<ContactListAdapter.ContactViewHolder>() {
 
     val contactList = contactList
-//    val clickHandler = clickHandler
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
 
@@ -31,20 +28,25 @@ class ContactListAdapter(contactList: List<Contact>, val clickHandler: (v: View)
 
     class ContactViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
 
-        fun bindItems(contact: Contact, onClick: (v: View) -> Unit) {
+        fun bindItems(contact: Contact, onItemClickHandler: (strName: String) -> Unit) {
 
-            v.tvFullName.text = contact.firstName
+            v.tvFullName.text = contact.firstName + " " + contact.lastName
             v.tvPhone.text = contact.cellPhone
 
             v.setOnClickListener {
-                // clickHandler.onClick(it)
-                onClick(it)
+                onItemClickHandler(contact.firstName.toString())
             }
         }
     }
 
     fun removeItem(position: Int) {
-        notifyItemRemoved(position)
+        contactList.removeAt(position)
+        notifyItemRemoved(position);
+    }
+
+    fun restoreItem(item: Contact, position: Int) {
+        contactList.add(position, item);
+        notifyItemInserted(position);
     }
 
 }
