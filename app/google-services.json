@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "979412380054",
+    "firebase_url": "https://androidmvp-92812.firebaseio.com",
+    "project_id": "androidmvp-92812",
+    "storage_bucket": "androidmvp-92812.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979412380054:android:a68a90c1655ac4d9",
+        "android_client_info": {
+          "package_name": "ir.goldenmind.androidmvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979412380054-tbgv8kiativfhj5l4qjm9r220k4f4ra5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA4wgK4uwC2AAFmAwo1mY4RR4J5Ei8yvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979412380054-tbgv8kiativfhj5l4qjm9r220k4f4ra5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
